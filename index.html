@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="sample.css">
+        <!-- <script src="js_sample.js"></script> -->
+        <title>x-Travels</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+      <body>
+        <div id="disc" class="dic">
+          <form class="inner animate" id="ids" action="/action_page.php" method="post"> 
+            <h2>DESCLAIMER</h2>
+            <h3>Username and Password Access Declaration</h3>             
+               <p>This website has been developed as a platform for skill development purposes only.
+                 To access certain features or content, users may be required to log in using a username and password.<br>
+                 Access to usernames and passwords is available through the designated "Help" section of the website.
+                </p>
+          </form>
+        </div>
+        <div class="nav">
+         <a href="#home">HOME</a>
+         <a href="#">CANCELLATION</a>
+         <a href="#about">ABOUT</a>
+         <a onclick="signpass()">HELP</a>
+        </div>
+        <section id="home">
+        <div class="row">
+          <div class="colleft">
+            <h1>X-Travels</h1>
+            <p>--- Drive Your Wings ---</p>
+            <img id="bus" src="Car/car-removebg-preview.png"><br><br>
+          </div>
+            <div class="colleft">
+              <br><br>
+              <br><br>
+              <br><br>
+              <br><br>
+              <div class="sign">
+                <p id="time">h</p>
+                <p id="date">h</p><br>
+                    <input type="txt" placeholder="name" id="names"><br><br>
+                    <input type="password" placeholder="password" id="pass"><br><br>
+                    <input class="xx" type="checkbox" onclick="checkbox()" id="check">
+                    <button onclick="login()">signin</button>
+              </div>
+        </div> 
+        </div>
+      </section>
+<!-- <div id="discl">
+  <form>
+    <p>bhvbkjvbjksbvkjbvkjbkjb</p>
+  <input type="text" id="ok" style="display: none;">
+  </form>
+</div> -->
+<section id="about" class="about">
+  <div class="r">
+    <div class="c">
+      <h4>Features</h4>
+      <ul>
+        <li>Travels Booking Website</li>
+        <li>Choose Your Wings</li>
+        <li>24/7</li>
+        <li>Affordable</li>
+        <li>Begins with gear</li>
+      </ul>
+    </div>
+    <div class="c">
+      <h4>About</h4>
+      <ul>
+        <li>Pravin</li>
+        <li>BE/BTECH</li>
+        <li>pravinece2020@gmail.com</li>
+        <li>+91 8220224115</li>
+        <li>www.linkedin.com/in/pravind2506</li>
+        <li>https://github.com/Pravinece</li>
+        
+      </ul>
+    </div>
+  </div>
+
+</section>
+
+
+
+
+
+        <script>
+
+signpass=function(){
+  window.alert("UserName:abc\nPassword:abc");
+}
+
+
+
+  // disclaimer=()=>{document.getElementById("disc");}
+  // window.onload=function(){
+  //   var ok=document.getElementById("disc");
+  //   setTimeout(function(){
+  //     ok.style.display="none";
+  //   },8000);
+  // };
+  var inne=document.getElementById("ids");
+  window.onload = function() {
+    var disc = document.getElementById("disc").style.display="block";
+  }
+  window.addEventListener("keydown",function(event){
+    if(event.key === "Enter"){
+      disc.style.display="none";
+    }
+  });
+  window.addEventListener("click",function(event){
+    if(event.target == disc){
+      disc.style.display="none";
+    }
+  });
+  
+
+
+
+
+
+
+
+      (myfun=()=>{
+                const date=new Date();
+                document.getElementById("time").innerHTML=date.toLocaleTimeString();
+                document.getElementById("date").innerHTML=date.toLocaleDateString();
+                
+                setTimeout(myfun,1000);
+            })();
+
+const inputFields = document.querySelectorAll("input");
+
+// Add event listeners to each input field
+inputFields.forEach((input, index) => {
+  input.addEventListener("keypress", function (event) {
+    const key = event.keyCode;
+    if (key === 13) {
+      // Check if Enter key is pressed (key code 13)
+
+      // Prevent the default form submission behavior
+    //   event.preventDefault();
+
+      // Focus on the next input field if available
+      if (index < inputFields.length - 1) {
+        inputFields[index + 1].focus();
+      } else if(index = inputFields.length - 1){
+       const z=document.querySelector("button");
+       z.focus();
+      } else{
+        // If the current input field is the last one, submit the form
+        inputFields[index].blur(); // Remove focus from the current field
+        // Optionally, you can submit the form here:
+        // document.querySelector("form").submit();
+      }
+    }
+  });
+});
+
+     
+
+
+// function login(){
+//          const username=document.getElementById("names").value;
+//          const password=document.getElementById("pass").value;
+//         }
+    //         function aa(){
+    //         document.addEventListener("keyup",function(event){
+    //             let namess=document.getElementById("names").value;
+    //             // document.getElementById("asd").innerHTML=namess;
+    //             return names;
+    //         })
+    // }
+    //     function bb(){
+    //         document.addEventListener("keyup",function(event){
+    //             let passs=document.getElementById("pass").value;
+    //             // document.getElementById("asdf").innerHTML=passs;
+    //             return passs;
+    //         })
+    //     }
+
+       function login(){
+        x=document.getElementById("names").value;
+        y=document.getElementById("pass").value;
+
+
+        let  users='{"user":[' +
+    '{"name":"abc","pass":"abc"},'+
+    '{"name":"pravin","pass":"creator"},'+
+    '{"name":"dhana","pass":"sister"},'+
+    '{"name":"kartick","pass":"friend"},'+
+    '{"name":"arvind","pass":"brother"}]}';
+  const myobj=JSON.parse(users);
+       var flag=0;
+       for(const i in myobj.user){
+        if(x==myobj.user[i].name && y==myobj.user[i].pass){
+          flag=1
+        }
+      }
+      if(flag==1){
+        const myWindow = window.open();
+         myWindow.location.href="sales.html";
+        //  myWindow.document.write("<h1>PRAVIN's WEBSITE</h1>");
+        //  myWindow.document.close();
+
+        }else{
+            window.alert("SORRY");
+        }
+       }
+       function checkbox(){
+          if(check.checked)
+           pass.type="text";
+           else
+           pass.type="password";
+        }
+
+
+
+
+
+        </script>
+
+<style>
+      /* input:focus {
+    border: 2px solid blue;
+  }
+  button:focus{
+      border: 2px solid blue;
+
+  } */
+</style>
+    </body>
+</html>
